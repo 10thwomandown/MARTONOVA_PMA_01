@@ -1,5 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 
 export default function App() {
@@ -29,13 +37,13 @@ export default function App() {
         />
         <Button onPress={handleAddItem} title="ADD" />
       </View>
+      <Text>Udalosti</Text>
       <View style={styles.udalosti}>
-        <Text>
-          {tasks.map((i) => (
-            <Text>{i}</Text>
-          ))}
-        </Text>
-        <Text>Udalosti</Text>
+        <FlatList
+          data={tasks}
+          renderItem={({ item }) => <Text>{item}</Text>}
+          keyExtractor={(item) => item.id}
+        />
       </View>
     </View>
   );
