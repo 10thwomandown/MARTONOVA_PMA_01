@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useState } from "react";
+import Item from "./src/components/Item.js";
 
 export default function App() {
   const [item, setItem] = useState("");

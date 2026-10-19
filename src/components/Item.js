@@ -1,7 +1,11 @@
-import { Text, Stylesheet } from "react-native";
+import { Text, Stylesheet, Pressable } from "react-native";
 
 export default function Item({ title }) {
-  return <Text style={styles.tasksitem}>{title}</Text>;
+  return (
+    <Pressable>
+      <Text style={styles.tasksitem}>{title}</Text>
+    </Pressable>
+  );
 }
 
 const styles = Stylesheet.create({
