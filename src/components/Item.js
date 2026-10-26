@@ -1,8 +1,8 @@
 import { Text, Stylesheet, Pressable } from "react-native";
 
-export default function Item({ title }) {
+export default function Item({ title, onDeleteItem }) {
   return (
-    <Pressable>
+    <Pressable onPress={onDeleteItem}>
       <Text style={styles.tasksitem}>{title}</Text>
     </Pressable>
   );

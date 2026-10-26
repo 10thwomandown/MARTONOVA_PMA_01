@@ -18,6 +18,13 @@ export default function App() {
     setItem(text);
   }
 
+  function deleteTaskItem(id) {
+    console.log("Item delete pressed.");
+    setTasks((currentTaskList) => {
+      return currentTaskList.filter((task) => task !== item);
+    });
+  }
+
   function handleAddItem() {
     console.log("Item", item);
     setTasks([...tasks, item]);
@@ -42,7 +49,9 @@ export default function App() {
       <View style={styles.udalosti}>
         <FlatList
           data={tasks}
-          renderItem={({ item }) => <Text>{item}</Text>}
+          renderItem={({ item }) => (
+            <Item title={item} onDeleteItem={deleteTaskItem} />
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>
