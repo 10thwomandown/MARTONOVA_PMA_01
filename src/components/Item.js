@@ -2,7 +2,7 @@ import { Text, Stylesheet, Pressable } from "react-native";
 
 export default function Item({ title, onDeleteItem }) {
   return (
-    <Pressable onPress={onDeleteItem}>
+    <Pressable onPress={onDeleteItem.bind(this, title.id)}>
       <Text style={styles.tasksitem}>{title}</Text>
     </Pressable>
   );

@@ -21,13 +21,13 @@ export default function App() {
   function deleteTaskItem(id) {
     console.log("Item delete pressed.");
     setTasks((currentTaskList) => {
-      return currentTaskList.filter((task) => task !== item);
+      return currentTaskList.filter((task) => task.id !== id);
     });
   }
 
   function handleAddItem() {
     console.log("Item", item);
-    setTasks([...tasks, item]);
+    setTasks([...tasks, { id: Date.now(), text: item }]);
     console.log("Tasks", tasks);
     setItem("");
   }
